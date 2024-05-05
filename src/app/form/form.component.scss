@@ -1,0 +1,110 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 252, 247);
+    margin-top: 6rem;
+    
+    .form-container{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        font-family: sans-serif;
+        width: 100%;
+        padding: 0 10px;
+        
+        form{
+            background-color: rgb(208, 249, 208);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px;
+
+            h2,h3{
+                color: green;
+                margin-left: 10px;
+            }
+
+            small{
+                color: red;
+            }
+            .btn_group{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+
+        .img-form{
+            display: flex;
+            justify-content: flex-start;
+            img{
+                height: 45vw;
+                width: 50vw;
+            }
+        }
+    }
+}
+.each{
+    margin: 10px;
+}
+label{
+    font-size: 17px;
+    /* margin: 1px; */
+    /* font-weight: 112px; */
+}
+select{
+    height: 28px;
+    width: 32vw;
+    border-radius: 5px;
+    padding: 2px 10px;
+    font-size: 15px;
+    border: 2px solid black;
+}
+.input-each{
+    /* background-color: rgb(215, 245, 250);; */
+    height: 22px;
+    width: 30vw;
+    border-radius: 5px;
+    padding: 2px 10px;
+    font-size: 15px;
+}
+button{
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 10px;
+    border: none;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(11, 183, 60);
+}
+.radio-label{
+    margin: 0px;
+    padding: 0px;
+}
+.label-alignment{
+    /* font-weight: bold; */
+    text-align: left;
+    display: inline-block;
+    /* width:50px; */
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+}
+.gen-option{
+    display: flex;
+    flex-direction: column;
+}
+/* .gen-option input{
+    margin: 0px;
+    padding: 0px;
+} */

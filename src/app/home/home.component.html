@@ -1,0 +1,56 @@
+<div class="main" id="main">
+    <div class="main-1">
+        <div class="heading">Sell your recyclables
+            <br />
+            online with<span> ScrapWala!</span>
+            <br />
+        </div>
+        <h4> Paper - Plastics - Metals - Appliances</h4>
+        <img src="https://www.chandigarhhelp.com/wp-content/uploads/2022/02/Scrap-Buyers-in-Chandigarh-1.webp"
+            alt="img" />
+    </div>
+
+    <div class="main-2">
+        <!-- @if (!isLoggedIn && !otpSent) {
+        <div class="form">
+            <h2>Schedule a Pickup</h2>
+            <form #mobileForm="ngForm" (ngSubmit)="onSubmit(mobileForm)" class="mobile-form">
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" ngModel required pattern="^\+?[0-9]{10}$">
+                    <div *ngIf="mobileForm.controls['mobileNumber'].invalid && mobileForm.controls['mobileNumber'].touched"
+                        class="text-danger">
+                        <div *ngIf="mobileForm.controls['mobileNumber'].errors?.['required']">*Mobile number is required
+                        </div>
+                        <div *ngIf="mobileForm.controls['mobileNumber'].errors?.['pattern']">*Invalid mobile number format
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="mobileForm.invalid">Submit</button>
+            </form>
+            <p> <i>Facing Problems?</i> Call us at <span>+91-9129473706</span></p>
+        </div>
+        } -->
+        <!-- @else if (!isLoggedIn && otpSent) {
+            <div class="card">
+                <form #otpForm="ngForm" (ngSubmit)="otpValidation(otpForm)" class="otp-form">
+                    <label><h2>Enter the Otp Here...</h2></label>
+                    <input type="text" required name="otp" (ngModel)="otp">
+                    <small class="text-danger">*Valid for 30 seconds.</small>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        } -->
+        <!-- @else if(isLoggedIn && otpSent){ -->
+        <div class="card">
+            <h2>Welcome Back</h2>
+            <img src="https://img.freepik.com/premium-vector/notary-license-concept_118813-10490.jpg" alt="">
+            <div class="button">
+                <button [routerLink]="['/register']">Schedule a PickUp</button>
+                <button [routerLink]="['/bookings']">See Your Bookings</button>
+            </div>
+        </div>
+        <!-- } -->
+    </div>
+</div>
+<app-landing></app-landing>

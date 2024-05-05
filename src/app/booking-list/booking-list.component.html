@@ -1,0 +1,138 @@
+<mat-card class="main">
+    <mat-card class="listItems">
+        <h3>Your Scheduled <span>PickUps...</span></h3>
+        <mat-card-header class="header">
+            <ul>
+                <li (click)="toogleActive()">Scheduled</li>
+                <li (click)="toogleComplete()">Completed</li>
+                <li [routerLink]="['/register']"> Schedule a New pickup</li>
+            </ul>
+        </mat-card-header>
+        <mat-card-content class="accordian">
+          @if(activeOrder){
+            <mat-accordion>
+              @for (item of list; track $index) {
+                  <mat-expansion-panel class="each-items">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          PickUp ID: #{{item._id}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                          Status: <span style="color: tomato"> Active</span>
+                        </mat-panel-description>
+                        <div class="del_button" (click)="deleteOrder(item._id)">
+                          <mat-icon aria-hidden="true" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
+                        </div>
+                      </mat-expansion-panel-header>
+                      <div class="details">
+                        <div class="field">
+                            <div class="field-head">Name</div>
+                            <div class="field-value">{{item.firstname+' '+item.lastname}}</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-head">Weight:</div>
+                            <div class="field-value">{{item.weight}}</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-head">PickUp Date</div>
+                            <div class="field-value">{{item.date}}</div>
+                        </div>
+                        <div class="field">
+                          <div class="field-head">Phoneno:</div>
+                          <div class="field-value">{{item.phoneno}}</div>
+                        </div>
+                        <div class="field">
+                          <div class="field-head">Slot:</div>
+                          <div class="field-value">{{item.time}}</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-head">Remarks:</div>
+                            <div class="field-value">{{item.remarks}}</div>
+                        </div>
+                      </div>
+                      <div class="field-address">
+                        <div class="field-head">Address:</div>
+                        <div class="field-value">{{item.address}}</div>
+                      </div>
+                    </mat-expansion-panel>
+              }
+              
+              <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Self aware panel
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>I'm visible because I am open</p>
+              </mat-expansion-panel> -->
+            </mat-accordion>
+
+          }
+          @else {
+            <mat-accordion>
+              @for (item of list; track $index) {
+                  <mat-expansion-panel class="each-items">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          PickUp ID: #{{item._id}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                          Status: <span style="color: rgb(39, 84, 49)"> Completed</span>
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <div class="details">
+                        <div class="field">
+                            <div class="field-head">Name</div>
+                            <div class="field-value">{{item.firstname+' '+item.lastname}}</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-head">Weight:</div>
+                            <div class="field-value">{{item.weight}}</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-head">PickUp Date</div>
+                            <div class="field-value">{{item.date}}</div>
+                        </div>
+                        <div class="field">
+                          <div class="field-head">Phoneno:</div>
+                          <div class="field-value">{{item.phoneno}}</div>
+                        </div>
+                        <div class="field">
+                          <div class="field-head">Slot:</div>
+                          <div class="field-value">{{item.time}}</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-head">Remarks:</div>
+                            <div class="field-value">{{item.remarks}}</div>
+                        </div>
+                      </div>
+                      <div class="field-address">
+                        <div class="field-head">Address:</div>
+                        <div class="field-value">{{item.address}}</div>
+                      </div>
+                    </mat-expansion-panel>
+              }
+              
+              <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Self aware panel
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>I'm visible because I am open</p>
+              </mat-expansion-panel> -->
+            </mat-accordion>
+          }
+            
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <img src="https://img.freepik.com/free-vector/appointment-booking-with-calendar_23-2148548958.jpg?w=740&t=st=1713675638~exp=1713676238~hmac=365def999ed9e2003e64cd3ccfbbff857894916622349e6b0afebbaaa283c6a3" alt="">
+    </mat-card>
+</mat-card>

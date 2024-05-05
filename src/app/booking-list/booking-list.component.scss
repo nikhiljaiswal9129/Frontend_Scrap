@@ -1,0 +1,130 @@
+.main{
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    // align-items: center;
+
+    .listItems{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        // border: 1px solid gray;
+
+        h3{
+            margin: 10px 0px;
+            font-size: 25px;
+
+            span{
+                color: rgb(20, 168, 20);
+            }
+        }
+
+        .accordian{
+            width: 95% !important;
+            // border: 2px solid rgb(200, 50, 50);
+
+            .each-items{
+                // background-color: rgb(223, 236, 223);
+                background-color: rgb(223, 249, 223);
+                margin-bottom: 5px;
+
+                .del_button{
+                    color: rgb(236, 128, 109);
+                    margin-right: 20px;
+                    padding: 7px;
+                }
+                .del_button:hover{
+                    border-radius: 50%;
+                    background-color: rgb(218, 213, 213);
+                    padding: 7px;
+                }
+            }
+
+            .details{
+                display: flex;
+                flex-wrap: wrap;
+
+                .field{
+                    margin: 15px 60px 15px 0px;
+                    display: flex;
+                    flex-direction: column;
+                    width: 18vh;
+                    white-space: wrap;
+
+                    .field-head{
+                        font-size: 17px;
+                        font-weight: bold;
+                        color: rgb(90, 90, 90);
+                        margin-right: 10px;
+                    }
+                    .field-value{
+                        font-size: 15px;
+                        // font-weight: bold;
+                        // margin-right: 10px;
+                    }
+                }
+
+            }
+
+            .field-address{
+                margin-top: 10px;
+                display: flex;
+                .field-head{
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: rgb(67, 139, 70);
+                    margin-right: 10px;
+                }
+                .field-value{
+                    font-size: 15px;
+                    // font-weight: bold;
+                    // margin-right: 10px;
+                }
+            }
+        }
+
+        
+        .header{
+            display: flex;
+            width: 95%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0px 25px 0;
+            border-bottom: 1px solid gray;
+            // box-shadow: 2px black;
+            // justify-content: space-between;
+            // align-items: center;  
+            
+            ul{
+                display: flex;
+                margin: 0;
+                padding: 0;
+                li{
+                    list-style: none;
+                    background-color: rgb(6, 123, 6);
+                    margin-right: 10px;
+                    border-radius: 15px;
+                    padding: 5px 25px;
+                    color: white;
+                    font-size: 15px;
+                    cursor: pointer;
+                }
+                li:hover{
+                    background-color: rgb(78, 198, 78);
+                }
+            }
+        }
+    }
+}
+mat-card{
+    img{
+        height: 45vw;
+        width: 42vw;
+    }
+}

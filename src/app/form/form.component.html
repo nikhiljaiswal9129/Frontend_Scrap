@@ -1,0 +1,82 @@
+<mat-card class="card">
+    <mat-card class="form-container">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <h2>Book an Appointment</h2>
+            <h3>Fill the Form Appropriately</h3>    
+            <div class="name each">
+                <label for="firstname">FirstName</label>
+                <br>
+                <input class="input-each" placeholder="Enter First Name" type="text" name="firstname" required [(ngModel)]="user.firstname">
+                <div *ngIf="form.controls['firstname']?.invalid && form.controls['firstname']?.touched">
+                    <small>*Name Required</small>
+                </div>
+            </div>
+            <div class="name each">
+                <label for="lastname">LastName</label>
+                <br>
+                <input class="input-each" placeholder="Enter Last Name" type="text" name="lastname" required [(ngModel)]="user.lastname">
+                <div *ngIf="form.controls['lastname']?.invalid && form.controls['lastname']?.touched">
+                    <small>*Name Required</small>
+                </div>
+            </div>
+            <div class="date each">
+                <label for="date">Enter Date</label>
+                <br>
+                <input class="input-each" placeholder="Schedule Date" type="date" name="date" required [(ngModel)]="user.date">
+                <div *ngIf="form.controls['date']?.invalid && form.controls['date']?.touched">
+                    <small>*Date is Required</small>
+                </div>
+            </div>
+            <div class="time each">
+                <label for="time">Select a Time Slot</label>
+                <br>
+                <select name="time" required [(ngModel)]="user.time">
+                    <option *ngFor="let t of time">{{t}}</option>
+                </select>
+            </div>
+            <div class="phone each">
+                <label for="phone">Enter Phone No</label>
+                <br>
+                <input class="input-each" placeholder="Enter Phone Number" type="text" name="phoneno" required pattern="[0-9]{10}" [(ngModel)]="user.phoneno">
+                <div *ngIf="form.controls['phoneno']?.invalid && form.controls['phoneno']?.touched">
+                    <small>*Phone No Required</small>
+                </div>
+            </div>
+            <div class="email each">
+                <label for="email">Enter Email</label>
+                <br>
+                <input class="input-each" placeholder="Enter Email Address" type="email" name="email" required email [(ngModel)]="user.email">
+                <div *ngIf="form.controls['email']?.invalid && form.controls['email']?.touched">
+                    <small>*Email Required</small>
+                </div>
+            </div>
+            <div class="address each">
+                <label for="address">Address</label>
+                <br>
+                <input class="input-each" placeholder="Enter Full Address" type="text" name="address" required [(ngModel)]="user.address">
+                <div *ngIf="form.controls['address']?.invalid && form.controls['address']?.touched">
+                    <small>*Address Required</small>
+                </div>
+            </div>
+            <div class="weight each">
+                <label for="weight">Estimated Weight</label>
+                <br>
+                <select name="weight" required [(ngModel)]="user.weight">
+                    <option *ngFor="let w of weight">{{w}}</option>
+                </select>
+            </div>
+            <div class=" each">
+                <label for="remarks">Remark(If Any)</label>
+                <br>
+                <input class="input-each" placeholder="Enter Remark" type="text" name="remarks" [(ngModel)]="user.remarks">
+            </div>
+            <div class="btn_group">
+                <button class="each" type="submit" [disabled]="!form.valid">Submit</button>
+                <button type="button" class="each" [routerLink]="['/bookings']">Your Bookings</button>
+            </div>
+        </form>
+        <div class="img-form">
+            <img src="https://img.freepik.com/free-vector/giant-checklist_23-2148081736.jpg" alt="form.jpg">
+        </div>
+    </mat-card>
+</mat-card>
