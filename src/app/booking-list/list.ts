@@ -8,5 +8,6 @@ export interface List {
     remarks: string, 
     phoneno: string, 
     email: string, 
-    time: string
+    time: string,
+    isActive: boolean
 }

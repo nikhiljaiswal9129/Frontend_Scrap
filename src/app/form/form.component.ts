@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-form',
@@ -31,6 +32,7 @@ export class FormComponent {
   ) {}
 
   onSubmit(formData: any){
+    swal("Hoorrey!!!", "Congrats, Your booking has been scheduled", "success");
     console.log(formData, this.user);
     const baseURL = 'http://localhost:8800/';
 

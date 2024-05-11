@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { List } from './list';
 import { appService } from '../service/app.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-booking-list',
@@ -34,17 +35,23 @@ export class BookingListComponent {
   }
 
   deleteOrder(orderId: string) {
-    console.log(orderId);
-    this.appService.deleteItem(orderId).subscribe(
-      (res) => {
-        console.log("Delete response:", res);
-        // Assuming _id is the correct property name for the ID
-        this.list = this.list.filter((item) => item._id !== orderId);
-      },
-      (error) => {
-        console.error("Delete error:", error);
+    swal("Are you sure to Delete this Booking?")
+    .then((val) => {
+      if(val) {
+        swal("Attention!!!", "Your Booking has been Deleted", "warning");
+        console.log(orderId);
+        this.appService.deleteItem(orderId).subscribe(
+          (res) => {
+            console.log("Delete response:", res);
+            // Assuming _id is the correct property name for the ID
+            this.list = this.list.filter((item) => item._id !== orderId);
+          },
+          (error) => {
+            console.error("Delete error:", error);
+          }
+        );
       }
-    );
+    })
   }
   
 
