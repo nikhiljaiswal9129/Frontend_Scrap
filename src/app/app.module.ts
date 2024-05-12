@@ -18,6 +18,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { HomeComponent } from './home/home.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 
@@ -33,7 +34,8 @@ import { HomeComponent } from './home/home.component';
     LandingComponent,
     HeroComponent,
     BookingListComponent,
-    HomeComponent
+    HomeComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { RatesComponent } from './rates/rates.component';
 import { HeroComponent } from './hero/hero.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
 import { HomeComponent } from './home/home.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'bookings',
     component: BookingListComponent
+  },
+  {
+    path: 'signup',
+    component: SignUpComponent
   }
 ]
 

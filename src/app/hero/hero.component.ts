@@ -11,19 +11,14 @@ export class HeroComponent {
   constructor(private router: Router) { }
 
   mobileNo: any;
-  otpSent: boolean = false;
-  isLoggedIn: boolean = false;
+  // signUpForm: boolean = true;
+  // logInForm: boolean = false;
   otp: any;
   onSubmit(form: any) {
     if (form.valid) {
       console.log("Form submitted with data:", form.value);
-      this.otpSent = true;
+      this.router.navigate(['/home']);
     }
-  }
-  otpValidation(token: any){
-    console.log('succesfully validated', token);
-    this.isLoggedIn = true;
-    this.router.navigate(['/home']);
   }
 
 }
