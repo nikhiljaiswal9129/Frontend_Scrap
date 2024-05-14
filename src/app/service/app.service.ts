@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, catchError, of } from "rxjs";
 import { Inject, Injectable } from "@angular/core";
 
 @Injectable({
@@ -22,4 +22,22 @@ export class appService {
     updateItem(ItemId: any, newItemData: any): Observable<any> {
         return this.http.put<any>(`${this.baseURL}/${ItemId}`, newItemData);
     }
+
+    logIn(userData: any): Observable<any> {
+        return this.http.post<any>(`${this.baseURL}/login`, userData);
+    }
+
+    // createUser(userData: any): Observable<any> {
+    //     return this.http.post<any>(`${this.baseURL}/register`, userData);
+    // }
+
+    createUser(userData: any): Observable<any> {
+        return this.http.post<any>(`${this.baseURL}`, userData)
+          .pipe(
+            catchError((error) => {
+              console.error(error);
+              return of(null);
+            })
+          );
+      }
 }

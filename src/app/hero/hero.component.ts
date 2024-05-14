@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { appService } from '../service/app.service';
 
 @Component({
   selector: 'app-hero',
@@ -8,17 +10,53 @@ import { Router } from '@angular/router';
 })
 export class HeroComponent {
 
-  constructor(private router: Router) { }
+  constructor(    
+    private http: HttpClient,
+    private router: Router,
+    private appService: appService
+  ) { }
 
-  mobileNo: any;
+  // mobileNo: any;
   // signUpForm: boolean = true;
   // logInForm: boolean = false;
-  otp: any;
+  // otp: any;
+  // onSubmit(form: any) {
+  //   if (form.valid) {
+  //     console.log("Form submitted with data:", form.value);
+  //     this.router.navigate(['/home']);
+
+
+  //     const baseURL = 'http://localhost:8800/';
+
+      
+  //     this.appService.logIn(form.value).subscribe((res: any) => {
+  //       console.log("User Logged In successfully", res);
+  //       form.resetForm();
+  //       this.router.navigate(['/home']);
+  //     });
+  //   }
+  // }
+
   onSubmit(form: any) {
     if (form.valid) {
       console.log("Form submitted with data:", form.value);
-      this.router.navigate(['/home']);
+      const userData = {
+        email: form.value.email,
+        password: form.value.password
+      };
+      this.appService.logIn(userData).subscribe(
+        (res: any) => {
+          console.log("User Logged In successfully", res);
+          form.resetForm();
+          this.router.navigate(['/home']);
+        },
+        (error: any) => {
+          console.error("Error logging in:", error);
+          // Handle error here (display error message to user, etc.)
+        }
+      );
     }
   }
+  // fix the situation when user try to enter with wrong data---------->>>>>>>>>>>>
 
 }
