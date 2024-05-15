@@ -9,6 +9,7 @@ import { appService } from '../service/app.service';
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
+  isAdmin: boolean = false;
 
   constructor(    
     private http: HttpClient,
@@ -47,8 +48,15 @@ export class HeroComponent {
       this.appService.logIn(userData).subscribe(
         (res: any) => {
           console.log("User Logged In successfully", res);
+          this.isAdmin = res.data.isAdmin;
+          console.log("isAdmin-->",this.isAdmin);
           form.resetForm();
-          this.router.navigate(['/home']);
+          if(this.isAdmin){
+            this.router.navigate(['/admin']);
+            // this.appService.isAdmin$. = true
+          }else{
+            this.router.navigate(['/home']);
+          }
         },
         (error: any) => {
           console.error("Error logging in:", error);

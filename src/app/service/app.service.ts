@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Observable, catchError, of } from "rxjs";
+import { BehaviorSubject, Observable, catchError, of } from "rxjs";
 import { Inject, Injectable } from "@angular/core";
 
 @Injectable({
@@ -7,6 +7,8 @@ import { Inject, Injectable } from "@angular/core";
 })
 
 export class appService {
+    public isAdmin$: Observable<boolean> = new Observable<boolean>();
+
     private baseURL = 'http://localhost:8800';
 
     constructor(private http: HttpClient) {}
@@ -27,17 +29,27 @@ export class appService {
         return this.http.post<any>(`${this.baseURL}/login`, userData);
     }
 
-    // createUser(userData: any): Observable<any> {
-    //     return this.http.post<any>(`${this.baseURL}/register`, userData);
-    // }
-
     createUser(userData: any): Observable<any> {
-        return this.http.post<any>(`${this.baseURL}`, userData)
-          .pipe(
-            catchError((error) => {
-              console.error(error);
-              return of(null);
-            })
-          );
-      }
+        return this.http.post<any>(`${this.baseURL}/register`, userData)
+        .pipe(
+        catchError((error) => {
+            console.error(error);
+            return of(null);
+        })
+        );
+    }
+
+    createAdmin(userData: any): Observable<any> {
+        return this.http.post<any>(`${this.baseURL}/register-admin`, userData)
+        .pipe(
+        catchError((error) => {
+            console.error(error);
+            return of(null);
+        })
+        );
+    }
+
+    getAllUsers(): Observable<any[]> {
+        return this.http.get<any[]>(`${this.baseURL}/allUser`);
+    }
 }

@@ -1,0 +1,27 @@
+<div class="main">
+    <h1>The List of All Users:</h1>
+    <div class="list">
+      <table style="width: 80vw;">
+        <tr class="heading">
+            <th>S.No.</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Is Admin</th>
+            <th>Profile Image</th>
+        </tr>
+        <tr [ngClass]=" e ? 'even' : 'odd'" *ngFor="let std of user; let e=even; let o=odd; let i= index">
+            <td style="text-align: center;">{{i+1}}</td>
+            <td style="text-align: center;">{{std.firstName}}</td>
+            <td style="text-align: center;">{{std.lastName}}</td>
+            <td style="text-align: center;">{{std.email}}</td>
+            <td style="text-align: center;">{{std.isAdmin}}</td>
+            <td style="text-align: center;"><img src="{{std.profileImg}}" alt="user.jpg" style="width: 4vw; height: 4vw; border-radius: 50%;"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+<!-- [routerLink]="['registration', std._id]" -->
+

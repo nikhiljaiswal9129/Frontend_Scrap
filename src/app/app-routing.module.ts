@@ -7,6 +7,10 @@ import { HeroComponent } from './hero/hero.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
 import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { RegisterAdminComponent } from './register-admin/register-admin.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { RolesComponent } from './roles/roles.component';
 
 
 const routes: Routes = [
@@ -33,6 +37,22 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignUpComponent
+  },
+  {
+    path: 'admin',
+    component: AdminPageComponent
+  },
+  {
+    path: 'admin/register-admin',
+    component: RegisterAdminComponent
+  },
+  {
+    path: 'admin/users-detail',
+    component: UserDetailsComponent
+  },
+  {
+    path: 'admin/roles',
+    component: RolesComponent
   }
 ]
 

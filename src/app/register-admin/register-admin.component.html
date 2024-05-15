@@ -1,0 +1,53 @@
+<div class="main" id="main">
+    <div class="main-1">
+        <div class="heading">Sell your recyclables
+            <br />
+            online with<span> ScrapWala!</span>
+            <br />
+        </div>
+        <h4> Paper - Plastics - Metals - Appliances</h4>
+        <img src="https://www.chandigarhhelp.com/wp-content/uploads/2022/02/Scrap-Buyers-in-Chandigarh-1.webp"
+            alt="img" />
+    </div>
+
+    <div class="main-2">
+        <div class="card">
+            <h2>Enter Admin Details</h2>                
+            <form #signUpForm="ngForm" (ngSubmit)="signUpSubmit(signUpForm)" class="otp-form">
+                <label for="firstName">Enter FirstName</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" ngModel required>
+                <div *ngIf="signUpForm.controls['firstName'].invalid && signUpForm.controls['firstName'].touched"
+                    class="text-danger">
+                    <div *ngIf="signUpForm.controls['firstName'].errors?.['required']">*FirstName is required
+                    </div>
+                </div>
+
+                <label for="lastName">Enter LastName</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" ngModel required>
+                <div *ngIf="signUpForm.controls['lastName'].invalid && signUpForm.controls['lastName'].touched"
+                    class="text-danger">
+                    <div *ngIf="signUpForm.controls['lastName'].errors?.['required']">*LastName is required
+                    </div>
+                </div>
+
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" ngModel required>
+                <div *ngIf="signUpForm.controls['email'].invalid && signUpForm.controls['email'].touched"
+                    class="text-danger">
+                    <div *ngIf="signUpForm.controls['email'].errors?.['required']">*Email is required
+                    </div>
+                    <div *ngIf="signUpForm.controls['email'].errors?.['pattern']">*Invalid Email
+                    </div>
+                </div>
+
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" ngModel required>
+
+                
+                <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">Submit</button>
+                <p [routerLink]="['/']"><i>Already have an account? Click...</i></p>
+            </form>
+
+        </div>
+    </div>
+</div>

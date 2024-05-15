@@ -16,9 +16,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { RegisterAdminComponent } from './register-admin/register-admin.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { RolesComponent } from './roles/roles.component';
 
 
 
@@ -35,7 +40,11 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     HeroComponent,
     BookingListComponent,
     HomeComponent,
-    SignUpComponent
+    SignUpComponent,
+    AdminPageComponent,
+    RegisterAdminComponent,
+    UserDetailsComponent,
+    RolesComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +53,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     HttpClientModule,
     MatCheckboxModule,
     MatCardModule,
+    MatTableModule,
     MatExpansionModule,
     MatIconModule,
     NgxUiLoaderModule,
