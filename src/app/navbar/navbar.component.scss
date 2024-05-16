@@ -53,4 +53,19 @@
             }
         }
     }
+    .logout{
+        padding: 6px 10px;
+        background-color: #067c16;
+        color: white;
+        border-radius: 10px;
+        font-size: 17px;
+        font-weight:bold;
+        cursor: pointer;
+
+        &:hover{
+            color: white;
+            background-color: #3ab34a; 
+            font-weight: light;
+        }
+    }
 }

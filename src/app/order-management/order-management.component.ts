@@ -55,8 +55,8 @@ export class OrderManagementComponent {
         swal('Alert!!!', 'This Order is marked as Completed', "warning");
         this.appService.updateItem(data._id, data).subscribe((res) => {
           console.log('result after update--', res);
-          // this.router.navigate(['admin/order-details']);
-          window.location.reload();
+          this.router.navigate(['admin']);
+          // window.location.reload();
         });
       }
     })

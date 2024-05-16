@@ -48,15 +48,20 @@ export class HeroComponent {
       this.appService.logIn(userData).subscribe(
         (res: any) => {
           console.log("User Logged In successfully", res);
+          this.appService.isLoggedIn$.next(true);
           this.isAdmin = res.data.isAdmin;
           console.log("isAdmin-->",this.isAdmin);
+
+          localStorage.setItem("user_id", res.data._id);
+          
           form.resetForm();
           if(this.isAdmin){
             this.router.navigate(['/admin']);
-            // this.appService.isAdmin$.next(true);
-            this.appService.setUserLoggedIn(true);
+            this.appService.isAdmin$.next(true);
+            // this.appService.setUserLoggedIn(true);
           }else{
             this.router.navigate(['/home']);
+            this.appService.isAdmin$.next(false);
           }
         },
         (error: any) => {

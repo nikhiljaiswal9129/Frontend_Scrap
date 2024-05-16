@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { appService } from '../service/app.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-admin-page',
@@ -52,6 +53,14 @@ export class AdminPageComponent {
         this.totalRoles++;
       }
     });
+  }
+
+  
+  logOut() {
+    document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    window.location.href = "/"; 
+    swal("Logged Out Successfuly", "success")
+
   }
 
 }

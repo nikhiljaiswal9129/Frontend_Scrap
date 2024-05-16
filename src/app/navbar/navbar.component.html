@@ -8,9 +8,10 @@
         <ul>
             <li><a (click)="home()" style="cursor: pointer;">Home</a></li>
             <li><a [routerLink]="['rates']"> Scrap Rates</a></li>
-            <li><a href="#why-us"> Why Us?</a></li>
-            <li><a href="#footer"> Contact Us</a></li>
+            <!-- <li><a href="#why-us"> Why Us?</a></li>
+            <li><a href="#footer"> Contact Us</a></li> -->
         </ul>
+        <button *ngIf="isLoggedIn" style="margin-left: 50vw;" (click)="logOut()" type="button" for="logout" class="logout">Log Out</button>
     </div>
 }
 @else {
@@ -26,5 +27,6 @@
             <li><a [routerLink]="['admin/register-admin']">Add Admin</a></li>
             <li><a [routerLink]="['admin/roles']">Roles Management</a></li>
         </ul>
-    </div>
+        <button *ngIf="isLoggedIn" style="margin-left: 20vw;" (click)="logOut()" type="button" for="logout" class="logout">Log Out</button>
+    </div> 
 }

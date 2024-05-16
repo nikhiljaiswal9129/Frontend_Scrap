@@ -9,6 +9,8 @@ import { Inject, Injectable } from "@angular/core";
 export class appService {
     // private isAdmin$: Observable<boolean> = new Observable<boolean>();
     public userLoggedIn: BehaviorSubject<boolean>;
+    isLoggedIn$ = new BehaviorSubject<boolean>(false);
+    isAdmin$ = new BehaviorSubject<boolean>(false);
 
     private baseURL = 'http://localhost:8800';
 
@@ -72,5 +74,9 @@ export class appService {
             return of(null);
         })
         );
+    }
+
+    isLoggedIn() {
+        return !!localStorage.getItem("user_id");
     }
 }
