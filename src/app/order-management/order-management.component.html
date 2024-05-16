@@ -1,0 +1,78 @@
+<mat-card class="mainContainer">
+    <nav mat-tab-nav-bar class="nav">
+        @for (link of links; track link) {
+            <a mat-tab-link
+                style="font-size: 18px;  color: white !important; background-color: rgb(147, 240, 147); margin: 0 2px;"
+                (click)="activeLink = link"
+                [active]="activeLink == link"> {{link}} 
+            </a>
+        }
+    </nav>
+    @if (activeLink == 'Active Orders') {
+        <div style="margin-bottom: 50vh;" class="content" for="activeOrder">
+            <div class="main">
+                <div class="list">
+                  <table>
+                    <tr class="heading">
+                        <th>S.No.</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Slot</th>
+                        <th>Date</th>
+                        <th>Address</th>
+                        <th>Phone No</th>
+                        <th>Weight</th>
+                        <th>Active Status</th>
+                        <th>Change Status</th>
+                    </tr>
+                    <tr [ngClass]=" e ? 'even' : 'odd'" *ngFor="let std of activeOrders; let e=even; let o=odd; let i= index;">
+                        <td style="text-align: center;">{{i+1}}</td>
+                        <td style="text-align: center;">{{std.firstname}}</td>
+                        <td style="text-align: center;">{{std.lastname}}</td>
+                        <td style="text-align: center;">{{std.time}}</td>
+                        <td style="text-align: center;">{{std.date}}</td>
+                        <td style="text-align: center;">{{std.address}}</td>
+                        <td style="text-align: center;">{{std.phoneno}}</td>
+                        <td style="text-align: center;">{{std.weight}}</td>
+                        <td style="text-align: center;">{{std.isActive}}</td>
+                        <td style="text-align: center;"><button (click)="toogleStatus(std)" type="button" style="color: white; background-color: rgb(12, 73, 12); padding: 10px; border-radius: 10px; cursor: pointer; ">Completed</button></td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+        </div>
+    }
+    
+    @else if (activeLink == 'Completed Order') {
+        <div style="margin-bottom: 50vh;"  class="content" for="completedOrder">
+            <div class="main">
+                <div class="list">
+                  <table>
+                    <tr class="heading">
+                        <th>S.No.</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Slot</th>
+                        <th>Date</th>
+                        <th>Address</th>
+                        <th>Phone No</th>
+                        <th>Weight</th>
+                        <th>Active Status</th>
+                    </tr>
+                    <tr [ngClass]=" e ? 'even' : 'odd'" *ngFor="let std of completedOrders; let e=even; let o=odd; let i= index;">
+                        <td style="text-align: center;">{{i+1}}</td>
+                        <td style="text-align: center;">{{std.firstname}}</td>
+                        <td style="text-align: center;">{{std.lastname}}</td>
+                        <td style="text-align: center;">{{std.time}}</td>
+                        <td style="text-align: center;">{{std.date}}</td>
+                        <td style="text-align: center;">{{std.address}}</td>
+                        <td style="text-align: center;">{{std.phoneno}}</td>
+                        <td style="text-align: center;">{{std.weight}}</td>
+                        <td style="text-align: center;">{{std.isActive}}</td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+        </div>
+    }
+</mat-card>

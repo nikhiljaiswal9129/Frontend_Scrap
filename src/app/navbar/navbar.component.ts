@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { appService } from '../service/app.service';
 
 
 @Component({
@@ -8,8 +9,17 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  constructor(private router: Router) {
+  isAdmin: boolean = false;
+  constructor(private router: Router, private appService: appService) {
+    
 
+  }
+
+  ngOnInit(): void {    
+    this.appService.userLoggedIn.subscribe(res => {
+      console.log(res);
+      this.isAdmin = res;
+    });
   }
 
   home(){

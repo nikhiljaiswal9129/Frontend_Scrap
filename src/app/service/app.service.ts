@@ -7,11 +7,18 @@ import { Inject, Injectable } from "@angular/core";
 })
 
 export class appService {
-    public isAdmin$: Observable<boolean> = new Observable<boolean>();
+    // private isAdmin$: Observable<boolean> = new Observable<boolean>();
+    public userLoggedIn: BehaviorSubject<boolean>;
 
     private baseURL = 'http://localhost:8800';
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+        this.userLoggedIn = new BehaviorSubject<boolean>(false);
+    }
+
+    setUserLoggedIn(value: boolean): void {
+        this.userLoggedIn.next(value);
+    }
 
     getItems(): Observable<any[]> {
         return this.http.get<any[]>(this.baseURL);
@@ -51,5 +58,19 @@ export class appService {
 
     getAllUsers(): Observable<any[]> {
         return this.http.get<any[]>(`${this.baseURL}/allUser`);
+    }
+
+    getAllRoles(): Observable<any[]> {
+        return this.http.get<any[]>(`${this.baseURL}/allRole`);
+    }
+
+    createRole(userData: any): Observable<any> {
+        return this.http.post<any>(`${this.baseURL}/signUp`, userData)
+        .pipe(
+        catchError((error) => {
+            console.error(error);
+            return of(null);
+        })
+        );
     }
 }

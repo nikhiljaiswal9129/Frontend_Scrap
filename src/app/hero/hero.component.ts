@@ -53,7 +53,8 @@ export class HeroComponent {
           form.resetForm();
           if(this.isAdmin){
             this.router.navigate(['/admin']);
-            // this.appService.isAdmin$. = true
+            // this.appService.isAdmin$.next(true);
+            this.appService.setUserLoggedIn(true);
           }else{
             this.router.navigate(['/home']);
           }

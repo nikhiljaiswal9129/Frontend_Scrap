@@ -1,13 +1,30 @@
 <!-- <p>navbar works!</p> -->
-<div class="navbar">
-    <div class="logo">
-        <img src="https://i.pinimg.com/originals/b1/ee/59/b1ee59212c497de48b9c4a0e3157bb2a.jpg" alt="logo.png" />
-        <h1>crapwala</h1>
+@if (!isAdmin) {
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://i.pinimg.com/originals/b1/ee/59/b1ee59212c497de48b9c4a0e3157bb2a.jpg" alt="logo.png" />
+            <h1>crapwala</h1>
+        </div>
+        <ul>
+            <li><a (click)="home()" style="cursor: pointer;">Home</a></li>
+            <li><a [routerLink]="['rates']"> Scrap Rates</a></li>
+            <li><a href="#why-us"> Why Us?</a></li>
+            <li><a href="#footer"> Contact Us</a></li>
+        </ul>
     </div>
-    <ul>
-        <li><a (click)="home()" style="cursor: pointer;">Home</a></li>
-        <li><a [routerLink]="['rates']"> Scrap Rates</a></li>
-        <li><a href="#why-us"> Why Us?</a></li>
-        <li><a href="#footer"> Contact Us</a></li>
-    </ul>
-</div>
+}
+@else {
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://i.pinimg.com/originals/b1/ee/59/b1ee59212c497de48b9c4a0e3157bb2a.jpg" alt="logo.png" />
+            <h1>crapwala</h1>
+        </div>
+        <ul>
+            <li><a [routerLink]="['admin']" style="cursor: pointer;">Dashboard</a></li>
+            <li><a [routerLink]="['admin/order-details']">Orders Management</a></li>
+            <li><a [routerLink]="['admin/users-detail']">Users Management </a></li>
+            <li><a [routerLink]="['admin/register-admin']">Add Admin</a></li>
+            <li><a [routerLink]="['admin/roles']">Roles Management</a></li>
+        </ul>
+    </div>
+}

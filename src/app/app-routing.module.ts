@@ -11,6 +11,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { RolesComponent } from './roles/roles.component';
+import { OrderManagementComponent } from './order-management/order-management.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'admin/roles',
     component: RolesComponent
+  },
+  {
+    path: 'admin/order-details',
+    component: OrderManagementComponent
   }
 ]
 

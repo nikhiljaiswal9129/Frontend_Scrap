@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -24,6 +25,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { RolesComponent } from './roles/roles.component';
+import { OrderManagementComponent } from './order-management/order-management.component';
 
 
 
@@ -44,7 +46,8 @@ import { RolesComponent } from './roles/roles.component';
     AdminPageComponent,
     RegisterAdminComponent,
     UserDetailsComponent,
-    RolesComponent
+    RolesComponent,
+    OrderManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { RolesComponent } from './roles/roles.component';
     MatCheckboxModule,
     MatCardModule,
     MatTableModule,
+    MatTabsModule,
     MatExpansionModule,
     MatIconModule,
     NgxUiLoaderModule,

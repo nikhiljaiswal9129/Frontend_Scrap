@@ -1,13 +1,48 @@
-<div class="navbar">
-    <div class="logo">
-        <img src="https://i.pinimg.com/originals/b1/ee/59/b1ee59212c497de48b9c4a0e3157bb2a.jpg" alt="logo.png" />
-        <h1>crapwala</h1>
+<div class="main-container">
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://i.pinimg.com/originals/b1/ee/59/b1ee59212c497de48b9c4a0e3157bb2a.jpg" alt="logo.png" />
+            <h1>crapwala</h1>
+        </div>
+        <ul>
+            <li><a  style="cursor: pointer;">Dashboard</a></li>
+            <li><a [routerLink]="['order-details']">Orders Management</a></li>
+            <li><a [routerLink]="['users-detail']">Users Management </a></li>
+            <li><a [routerLink]="['register-admin']">Add Admin</a></li>
+            <li><a [routerLink]="['roles']">Roles Management</a></li>
+        </ul>
     </div>
-    <ul>
-        <li><a  style="cursor: pointer;">Dashboard</a></li>
-        <li><a href="">Orders Management</a></li>
-        <li><a [routerLink]="['users-detail']">Users Management </a></li>
-        <li><a [routerLink]="['register-admin']">Add Admin</a></li>
-        <li><a [routerLink]="['roles']">Roles Management</a></li>
-    </ul>
+
+    <div class="dashboard">
+        <mat-card class="parent-kpi">
+            <mat-card-header><p style="font-size: 40px; font-weight: 500; color: green;">Welcome Admin,</p></mat-card-header>
+            <mat-card-content class="tile-container">
+                <mat-card class="tile" style="background-color: tomato;">
+                    <h3>Active Orders</h3>
+                    <h4>{{activeOrders}}</h4>
+                </mat-card>
+                <mat-card class="tile" style="background-color: green;">
+                    <h3>Completed Orders</h3>
+                    <h4>{{completedOrders}}</h4>
+                </mat-card>
+                <mat-card class="tile" style="background-color: steelblue;">
+                    <h3>Total Admins</h3>
+                    <h4>{{totalAdmins}}</h4>
+                </mat-card>
+                <mat-card class="tile" style="background-color: slateblue;">
+                    <h3>Total Users</h3>
+                    <h4>{{totalUsers}}</h4>
+                </mat-card>
+                <mat-card class="tile" style="background-color: gray;">
+                    <h3>Total Roles</h3>
+                    <h4>{{totalRoles}}</h4>
+                </mat-card>
+                <!-- <mat-card class="tile" style="background-color: rgb(255, 71, 187);">
+                    <h3>Super Admins</h3>
+                    <h4>10</h4>
+                </mat-card> -->
+            </mat-card-content>
+
+        </mat-card>
+    </div>
 </div>
