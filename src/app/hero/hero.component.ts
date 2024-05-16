@@ -52,9 +52,10 @@ export class HeroComponent {
           this.isAdmin = res.data.isAdmin;
           console.log("isAdmin-->",this.isAdmin);
 
+          localStorage.setItem("token", res.token);
           localStorage.setItem("user_id", res.data._id);
           
-          form.resetForm();
+          // form.resetForm();
           if(this.isAdmin){
             this.router.navigate(['/admin']);
             this.appService.isAdmin$.next(true);

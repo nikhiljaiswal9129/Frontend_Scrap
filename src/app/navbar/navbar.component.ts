@@ -32,8 +32,12 @@ export class NavbarComponent {
   }
 
   home(){
-    // if()
+    if(this.isLoggedIn) {
       this.router.navigate(['/home'])
+    }
+    else{
+      this.router.navigate(['']);
+    }
   }
 
   logOut() {

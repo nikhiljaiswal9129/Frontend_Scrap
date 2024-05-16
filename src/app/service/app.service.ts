@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject, Observable, catchError, of } from "rxjs";
 import { Inject, Injectable } from "@angular/core";
 
@@ -22,8 +22,15 @@ export class appService {
         this.userLoggedIn.next(value);
     }
 
+    // getItems(): Observable<any[]> {
+    //     return this.http.get<any[]>(this.baseURL);
+    // }
     getItems(): Observable<any[]> {
-        return this.http.get<any[]>(this.baseURL);
+        return this.http.get<any[]>(`${this.baseURL}/all-orders`);
+    }
+
+    getOrdersForUser(headers: HttpHeaders): Observable<any[]> {
+        return this.http.get<any[]>(this.baseURL, { headers });
     }
 
     deleteItem(ItemId: any): Observable<any> {

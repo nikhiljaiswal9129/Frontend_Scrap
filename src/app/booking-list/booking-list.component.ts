@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { List } from './list';
 import { appService } from '../service/app.service';
 import swal from 'sweetalert';
+import { HttpClient, HttpHeaders  } from "@angular/common/http";
 
 @Component({
   selector: 'app-booking-list',
@@ -13,17 +14,37 @@ export class BookingListComponent {
   panelOpenState = false;
   activeOrder: boolean = true;
 
-  constructor(private appService: appService){}
+  constructor(private appService: appService, private http: HttpClient){}
 
   ngOnInit() {
-    this.appService.getItems().subscribe((res) => {
+    const baseURL = 'http://localhost:8800/';
+    const token = localStorage.getItem('token');
+    console.log("token", token);
+    
+    if (!token) {
+      console.error("Error: No authentication token found.");
+      return;
+    }
+    const headers = new HttpHeaders().set('access_token', `${token}`);
+    
+    // this.appService.getOrdersForUser({ headers }).subscribe((res) => {
+    //   if(res){
+    //     console.log('data----->', res);
+    //     this.list = res;
+    //   }
+    //   else{
+    //     console.log("error in fetching the data!!!");
+    //   }
+    // });
+
+    this.http.get(baseURL, { headers }).subscribe((res: any) => {
       if(res){
-        console.log('data----->', res);
-        this.list = res;
-      }
-      else{
-        console.log("error in fetching the data!!!");
-      }
+            console.log('data----->', res);
+            this.list = res;
+          }
+          else{
+            console.log("error in fetching the data!!!");
+          }
     })
   }
 

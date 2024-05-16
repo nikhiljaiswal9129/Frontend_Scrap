@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders  } from "@angular/common/http";
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
 
@@ -36,12 +36,28 @@ export class FormComponent {
     console.log(formData, this.user);
     const baseURL = 'http://localhost:8800/';
 
+    const token = localStorage.getItem('token');
+    // console.log("token", token);
 
-    this.http.post(baseURL, this.user).subscribe((res: any) => {
+    if (!token) {
+      console.error("Error: No authentication token found.");
+      return;
+    }
+    const headers = new HttpHeaders().set('access_token', `${token}`);
+
+
+    this.http.post(baseURL, this.user, { headers }).subscribe((res: any) => {
       console.log("data added successfully", res);
       formData.resetForm();
       this.router.navigate(['/bookings']);
     })
+  }
+
+  getCookie(name: string): string | null {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
+    return null;
   }
 
 }
